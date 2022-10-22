@@ -1,0 +1,420 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "Error_AuctionNotEnded",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "BidderAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "BidPrice",
+						"type": "uint256"
+					}
+				],
+				"name": "Bid",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "StartTimestamp",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "EndTimestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "LaunchAuction",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [],
+				"name": "ListedForSale",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "AUCTION_DURATION",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "MIN_BID",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "MIN_PRICE",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "auctionState",
+				"outputs": [
+					{
+						"internalType": "enum PixelParkSale.Auction_State",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "auctioneer",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "bidPrice",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "bidder",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "listingId",
+						"type": "uint256"
+					}
+				],
+				"name": "buyAsset",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "cancelAuction",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "endAuction",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "listingId",
+						"type": "uint256"
+					}
+				],
+				"name": "executeAuction",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "tokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "saleType",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_price",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_fee",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_duration",
+						"type": "uint256"
+					}
+				],
+				"name": "listForSale",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "listingCounter",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "listings",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "tokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "saleType",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "fee",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "expirationTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "listingId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_bidPrice",
+						"type": "uint256"
+					}
+				],
+				"name": "placeBid",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "startAuction",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"AUCTION_DURATION()": {
+					"notice": "Time Auction will last"
+				},
+				"MIN_BID()": {
+					"notice": "Min delta between 2 bids"
+				},
+				"MIN_PRICE()": {
+					"notice": "Min price for NFT"
+				},
+				"auctioneer()": {
+					"notice": "Timestamp when auction was started"
+				},
+				"bidPrice()": {
+					"notice": "Price in ether of the current winning bid"
+				},
+				"bidder()": {
+					"notice": "Address of the current winner bidder"
+				},
+				"endAuction()": {
+					"notice": "Timestamp when auction was finished (24h after starting)"
+				},
+				"executeAuction(uint256)": {
+					"notice": "------------------------------------------------------ Auctionerr action ------------------------------------------------------"
+				},
+				"placeBid(uint256,uint256)": {
+					"notice": "------------------------------------------------------ Users actions ------------------------------------------------------"
+				},
+				"startAuction()": {
+					"notice": "Timestamp when auction was started"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"PixelParkSale.sol": "PixelParkSale"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/token/ERC721/IERC721.sol": {
+			"keccak256": "0xed6a749c5373af398105ce6ee3ac4763aa450ea7285d268c85d9eeca809cdb1f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://20a97f891d06f0fe91560ea1a142aaa26fdd22bed1b51606b7d48f670deeb50f",
+				"dweb:/ipfs/QmTbCtZKChpaX5H2iRiTDMcSz29GSLCpTCDgJpcMR4wg8x"
+			]
+		},
+		"@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+			"keccak256": "0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://be161e54f24e5c6fae81a12db1a8ae87bc5ae1b0ddc805d82a1440a68455088f",
+				"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy"
+			]
+		},
+		"PixelParkSale.sol": {
+			"keccak256": "0xe4ccb19d996d9c071cb8369f14187d32712e86ed9e05e5e75e11a20ff6467d31",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bfee9241bc8f1503eec28c01d5beb98ac812ca2fafcd2cc1fd5f49359002f407",
+				"dweb:/ipfs/QmT9A6YjkCeggp2DgwaZc7rXou5bB7YgPfKa5TqeMd4Bb4"
+			]
+		}
+	},
+	"version": 1
+}
