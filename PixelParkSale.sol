@@ -65,6 +65,10 @@ contract PixelParkSale {
     ///@notice Min delta between 2 bids
     uint256 public MIN_BID;
 
+    constructor() {
+        auctioneer = payable(msg.sender);
+    }
+
     /* Events */
     event ListedForSale();
     event LaunchAuction(uint256 StartTimestamp, uint256 EndTimestamp);
@@ -147,17 +151,31 @@ contract PixelParkSale {
         auctionState = Auction_State.Cancelled;
     }
 
+    function finalizeAuction(uint256 listingId) public payable {
+        require(
+            auctionState == Auction_State.Cancelled ||
+                block.timestamp > endAuction
+        );
+
+        require(msg.sender == auctioneer || msg.sender == listings[listingId].owner);
+    }
+
     /// ------------------------------------------------------
     /// Users actions
     /// ------------------------------------------------------
 
-    function placeBid(uint256 listingId, uint256 _bidPrice) notOwner public payable{
+    function placeBid(uint256 listingId, uint256 _bidPrice)
+        public
+        payable
+        notOwner
+    {
         require(listings[listingId].saleType == 1, "Not an auction listing");
-        require(_bidPrice>listings[listingId].price, "bid amount less than listing price");
+        require(
+            _bidPrice > listings[listingId].price,
+            "bid amount less than listing price"
+        );
         listings[listingId].price = _bidPrice;
-
     }
-
 
     // function executeAuction(uint256 listingId) onlyOwner public payable {
     //     require(listings[listingId].saleType == 1, "Not an auction listing");

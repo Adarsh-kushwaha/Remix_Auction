@@ -7,6 +7,11 @@
 		"abi": [
 			{
 				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
 				"name": "Error_AuctionNotEnded",
 				"type": "error"
 			},
@@ -187,6 +192,19 @@
 					}
 				],
 				"name": "executeAuction",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "listingId",
+						"type": "uint256"
+					}
+				],
+				"name": "finalizeAuction",
 				"outputs": [],
 				"stateMutability": "payable",
 				"type": "function"
@@ -408,11 +426,11 @@
 			]
 		},
 		"PixelParkSale.sol": {
-			"keccak256": "0xe4ccb19d996d9c071cb8369f14187d32712e86ed9e05e5e75e11a20ff6467d31",
+			"keccak256": "0x94debdddd1f440be7bf4f75e0f1f225bc148c7704464dfe48abc988ad5698ba4",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://bfee9241bc8f1503eec28c01d5beb98ac812ca2fafcd2cc1fd5f49359002f407",
-				"dweb:/ipfs/QmT9A6YjkCeggp2DgwaZc7rXou5bB7YgPfKa5TqeMd4Bb4"
+				"bzz-raw://436a2c82a567c065c7ebaeda6f130bc97786b2a3e0aa9fa3962f7324dfefe903",
+				"dweb:/ipfs/QmRUptfMX9E1gKaNQo3vZTgyNoKmFEEuJ3ENWReUtuYqdq"
 			]
 		}
 	},
